@@ -1,7 +1,5 @@
 'use client'
 
-import { SanDeMore } from "@/lib/fonts"
-import { Bars3Icon, PencilSquareIcon } from "@heroicons/react/16/solid"
 import Image from "next/image"
 
 const ProfilePage = () => {
@@ -21,7 +19,7 @@ const ProfilePage = () => {
 
             </header>
             <div className="pt-5">
-                <h2 className={` pl-8 text-primaryB7  !leading-[34px]  mobile:!text-[28px] mobile:!leading-[30px] mobile:!capitalize  text-[36px] font-bold tracking-[0.03em] mobile:text-[28px] mobile:font-extrabold mobile:tracking-[0.02em] ${SanDeMore.className}   `} >
+                <h2 className={` pl-8 text-primaryB7  !leading-[34px]  mobile:!text-[28px] mobile:!leading-[30px] mobile:!capitalize  text-[36px] font-bold tracking-[0.03em] mobile:text-[28px] mobile:font-extrabold mobile:tracking-[0.02em] `} >
                     Profile
                 </h2>
                 <div className="flex justify-center ">

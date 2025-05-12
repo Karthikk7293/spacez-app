@@ -8,16 +8,13 @@ interface InputBoxProps {
     readOnly: boolean,
     state: string,
     isBlur: boolean
-    setState: (data: String) => void;
 }
 
-const InputBox = ({ type, name, placeHolder, required, readOnly, state, setState }: InputBoxProps) => {
+const InputBox = ({ type, name, placeHolder, required, readOnly, state }: InputBoxProps) => {
 
     // const [blur, setBlur]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { value } = e.target
-        setState(value)
     }
 
     // const handleBlur = (status: boolean) => {

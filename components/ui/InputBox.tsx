@@ -8,7 +8,7 @@ interface InputBoxProps {
     readOnly: boolean,
     state: string,
     isBlur: boolean
-    setState: (data: any) => void;
+    setState: (data: String) => void;
 }
 
 const InputBox = ({ type, name, placeHolder, required, readOnly, state, setState }: InputBoxProps) => {

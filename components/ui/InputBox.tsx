@@ -15,6 +15,7 @@ const InputBox = ({ type, name, placeHolder, required, readOnly, state }: InputB
     // const [blur, setBlur]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        e.preventDefault()
     }
 
     // const handleBlur = (status: boolean) => {

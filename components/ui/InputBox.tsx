@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from "react"
+
 interface InputBoxProps {
     type: string,
     name: string,
@@ -7,35 +9,31 @@ interface InputBoxProps {
     required: boolean,
     readOnly: boolean,
     state: string,
-    isBlur: boolean,
-    showEdit: boolean
+    showEdit: boolean,
 }
 
-const InputBox = ({ type, name, placeHolder, required, readOnly, state, showEdit }: InputBoxProps) => {
+const InputBox = ({ type, name, placeHolder, required, readOnly, showEdit, }: InputBoxProps) => {
 
-    // const [blur, setBlur]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
+    const [focus, setFocus] = useState("")
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         e.preventDefault()
 
     }
 
-    // const handleBlur = (status: boolean) => {
-    //     // setBlur(status)
-    // }
-
     return (
-        <div className="flex border items-center border-b-2 my-2">
+        <div className="flex border items-center border-b-2 my-2 relative">
+            <span className={` text-nowrap text-gray-500 top-3 left-3 absolute duration-150 ${focus === name ? "-translate-2 text-xs " : "translate-0 text-sm "} `}>{placeHolder}</span>
             <input
-                className=" w-full p-3 !border-transparent focus:outline-none "
+                className=" w-full px-3 pt-5 h-12 !border-transparent focus:outline-none "
                 type={type}
                 name={name}
-                placeholder={placeHolder}
                 required={required}
                 readOnly={readOnly}
-                value={state}
+                placeholder={focus === name ? placeHolder : ""}
+                onFocus={(() => setFocus(name))}
+                onBlur={(() => setFocus(name))}
                 onChange={((e) => handleChange(e))}
-
             />
             {showEdit && <span className=" px-2 ">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-gray-300">

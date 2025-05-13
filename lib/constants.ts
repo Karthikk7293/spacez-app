@@ -1,8 +1,8 @@
 import {
     MagnifyingGlassIcon,
-    GiftIcon,
     ClipboardDocumentCheckIcon,
     UserCircleIcon,
+    PercentBadgeIcon,
 } from "@heroicons/react/24/outline";
 
 export const NAVBAR_ITEMS = [
@@ -12,7 +12,7 @@ export const NAVBAR_ITEMS = [
     },
     {
         name: "Offers",
-        Icon: GiftIcon,
+        Icon: PercentBadgeIcon,
     },
     {
         name: "Bookings",

@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid"
-import { HeartIcon } from "@heroicons/react/20/solid"
 import { PencilSquareIcon } from '@heroicons/react/16/solid'
+import { HeartIcon } from '@heroicons/react/24/outline'
 
 const ProfileCard = () => {
     const [show, setShow] = useState(false)

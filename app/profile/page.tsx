@@ -74,7 +74,7 @@ const ProfilePage = () => {
                     <InputBox name={"email"} type={"email"} placeHolder={"Email"} required={true} readOnly={false} isBlur={false} state="" showEdit={true} />
                 </div>
             </div>
-            <footer className="border fixed bottom-0 h-16 w-full">
+            <footer className="border-t border-gray-300 shadow-2xl fixed bottom-0 h-16 w-full">
                 <div className="flex justify-around items-center  h-full">
                     <div className={`flex flex-col  justify-center items-center ${active ? "" : "text-gray-400"}  `}>
                         <span className="" >

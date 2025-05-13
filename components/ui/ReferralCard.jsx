@@ -1,11 +1,9 @@
 'use client'
 
-import { useState } from "react"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
 import { LockClosedIcon } from "@heroicons/react/24/solid"
 
-const ReferralCard = () => {
-    const [showReferral, setShowReferral] = useState(false)
+const ReferralCard = ({ showReferral }) => {
     return (
         <div className="py-3 flex justify-between items-center">
             <div>

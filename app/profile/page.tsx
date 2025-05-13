@@ -5,34 +5,27 @@ import LogoutButton from "@/components/ui/LogoutButton"
 import ProfileCard from "@/components/ui/ProfileCard"
 import ProfileForm from "@/components/ui/ProfileForm"
 import ReferralCard from "@/components/ui/ReferralCard"
-import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid"
-import { HeartIcon } from "@heroicons/react/24/outline"
+
 
 import { useState } from "react"
 
 const ProfilePage = () => {
-    const [show, setShow] = useState(false)
+    const [showReferral, setShowReferral] = useState(false)
 
     return (
-        <div className="">
-            <div className="px-5 mb-24">
-                <div className="flex justify-between items-center  py-2 ">
-                    <h2 className={`text-[30px] font-sans `} >
-                        Profile
-                    </h2>
-                    <span onClick={(() => setShow(!show))}>
-                        {show ? <HeartIconSolid className="size-6" />
-                            : <HeartIcon className="size-6" />
-                        }
-                    </span>
-
+        <div className="relative">
+            {/* <div className="absolute w-screen h-screen  left-0 top-0 z-40 bg-gray-500 opacity-20"></div> */}
+            <div className="px-5 mb-24 md:w-[60%] mx-auto z-10 ">
+                <div className="  flex flex-col md:flex-row   mx-auto">
+                    <ProfileCard />
+                    <div className=" md:w-[70%]">
+                        <hr className="text-gray-200 md:hidden" />
+                        <ReferralCard showReferral={showReferral} />
+                        <hr className="text-gray-200" />
+                        <ProfileForm setShowReferral={setShowReferral} />
+                        <hr className="text-gray-200" />
+                    </div>
                 </div>
-                <ProfileCard />
-                <hr className="text-gray-200" />
-                <ReferralCard />
-                <hr className="text-gray-200" />
-                <ProfileForm />
-                <hr className="text-gray-200" />
                 <LogoutButton />
                 <DeleteAccount />
             </div>

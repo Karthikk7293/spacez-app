@@ -29,7 +29,6 @@ const ProfilePage = () => {
                 <LogoutButton />
                 <DeleteAccount />
             </div>
-
         </div>
     )
 }

@@ -9,8 +9,8 @@ const ProfileCard = () => {
     const [show, setShow] = useState(false)
     return (
         <div className='flex  flex-col  md:w-[30%] items-center  '>
-            <div className="flex  w-full justify-between md:justify-center items-center  py-2 ">
-                <h2 className={`text-[30px] font-sans `} >
+            <div className="flex   w-full justify-between md:justify-center items-center  py-2 ">
+                <h2 className={`text-[28px] font-sans  `} >
                     Profile
                 </h2>
                 <span className='md:hidden ' onClick={(() => setShow(!show))}>

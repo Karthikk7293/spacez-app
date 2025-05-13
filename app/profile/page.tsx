@@ -6,7 +6,6 @@ import PartnerCard from "@/components/ui/PartnerCard"
 import ProfileCard from "@/components/ui/ProfileCard"
 import ProfileForm from "@/components/ui/ProfileForm"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
-import Image from "next/image"
 import { useState } from "react"
 
 const ProfilePage = () => {

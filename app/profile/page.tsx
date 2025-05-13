@@ -6,22 +6,9 @@ import { useState } from "react"
 
 const ProfilePage = () => {
     const [show, setShow] = useState(false)
-    const [active, setActive] = useState(false)
+
     return (
         <div className="">
-            <header className="border-b border-b-gray-200 px-5">
-                <div className="flex  justify-between items-center  ">
-                    <div className="">
-                        <Image className="h-auto w-auto" height={100} width={100} src={'https://res.cloudinary.com/dz3tveb47/image/upload/v1741425295/logo_for_websiter_1_1_iz3hbc.png'} alt="logo" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <div className="border w-5" />
-                        <div className="border w-5" />
-                        <div className="border w-5" />
-                    </div>
-                </div>
-
-            </header>
             <div className="px-5 ">
                 <div className="flex justify-between items-center  py-2 ">
                     <h2 className={`text-[30px] font-sans `} >
@@ -41,8 +28,6 @@ const ProfilePage = () => {
                 <div className="flex justify-center pb-7 ">
                     <div className="border rounded-full border-gray-200 w-fit relative ">
                         <Image width={160} height={160} alt="avatar" src={"/avatar.webp"} className="rounded-full" />
-                        {/* <PencilSquareIcon className="w-6 h-6 absolute" /> */}
-
                         <span className="absolute right-3 bottom-2 border rounded p-1 border-gray-100 bg-white text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5">
                                 <path d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z" />
@@ -74,44 +59,7 @@ const ProfilePage = () => {
                     <InputBox name={"email"} type={"email"} placeHolder={"Email"} required={true} readOnly={false} isBlur={false} state="" showEdit={true} />
                 </div>
             </div>
-            <footer className="border-t border-gray-300 shadow-2xl fixed bottom-0 h-16 w-full">
-                <div className="flex justify-around items-center  h-full">
-                    <div className={`flex flex-col  justify-center items-center ${active ? "" : "text-gray-400"}  `}>
-                        <span className="" >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-6 ">
-                                <path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" />
-                            </svg>
-                        </span>
-                        <span>Explore</span>
-                    </div>
-                    <div className={`flex flex-col  justify-center items-center ${active ? "" : "text-gray-400"}  `}>
-                        <span className="" >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-                            </svg>
 
-                        </span>
-                        <span>Offers</span>
-                    </div>
-                    <div className={`flex flex-col  justify-center items-center ${active ? "" : "text-gray-400"}  `}>
-                        <span className="" >
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-6 ">
-                                <path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" />
-                            </svg>
-                        </span>
-                        <span>Bookings</span>
-                    </div>
-                    <div onClick={(() => setActive(!active))} className={` flex flex-col  justify-center items-center ${!active ? "" : "text-gray-400"}`}>
-                        <span className="" >
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                            </svg>
-                        </span>
-                        <span>Profile</span>
-                    </div>
-                </div>
-
-            </footer>
         </div>
     )
 }

@@ -25,7 +25,7 @@ const InputBox = ({ type, name, placeHolder, required, readOnly, state }: InputB
     return (
         <div>
             <input
-                className=""
+                className="border border-b-2 w-full p-3 my-2"
                 type={type}
                 name={name}
                 placeholder={placeHolder}

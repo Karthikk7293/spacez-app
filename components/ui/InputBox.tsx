@@ -1,7 +1,6 @@
 'use client'
 
 import { PencilSquareIcon } from "@heroicons/react/16/solid"
-import { useState } from "react"
 
 interface InputBoxProps {
     type: string

@@ -19,7 +19,7 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
     const [focus, setFocus] = useState("")
 
     useEffect(() => {
-        let userDetails = localStorage.getItem('userDetails')
+        const userDetails = localStorage.getItem('userDetails')
         if (userDetails) {
             const data: UserDetailsTypes = JSON.parse(userDetails)
             setUserData(data)

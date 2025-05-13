@@ -8,7 +8,7 @@ export default function ProfileLayout({ children }: { children: React.ReactNode 
     return (
         <div className=" min-h-screen">
             <Header />
-            <main className="">
+            <main className="pt-14">
                 {children}
             </main>
             <Footer />

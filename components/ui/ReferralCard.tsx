@@ -5,10 +5,9 @@ import { LockClosedIcon } from "@heroicons/react/24/solid"
 
 interface ReferralCardTypes {
     showReferral: boolean;
-    setShowReferral: (data: boolean) => void
 }
 
-const ReferralCard = ({ showReferral, setShowReferral }: ReferralCardTypes) => {
+const ReferralCard = ({ showReferral }: ReferralCardTypes) => {
 
     return (
         <div className="py-3 flex justify-between items-center">
@@ -18,7 +17,7 @@ const ReferralCard = ({ showReferral, setShowReferral }: ReferralCardTypes) => {
                     ? <p className="font-bold">SPACEZ-{new Date().getFullYear()}</p>
                     : <p className="font-extrabold tracking-tighter ">*********</p>}
             </div>
-            <div onClick={(() => setShowReferral(!showReferral))}>
+            <div>
                 {showReferral
                     ? <ChevronRightIcon className="size-4" />
                     : <LockClosedIcon className="size-4" />}

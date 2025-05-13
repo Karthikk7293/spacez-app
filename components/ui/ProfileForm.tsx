@@ -4,19 +4,21 @@ import { FormEvent, useEffect, useState } from "react"
 import InputBox from "./InputBox"
 
 interface UserDetailsTypes {
-    name: string,
-    mobile: string,
+    name: string
+    mobile: string
     email: string
 }
 
 interface ProfileFormTypes {
     setShowReferral: (data: boolean) => void
+    focus: string
+    setFocus: (data: string) => void
 }
 
 
-const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
+const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => {
     const [userData, setUserData] = useState({ name: "", mobile: "+91", email: "" })
-    const [focus, setFocus] = useState("")
+
 
     useEffect(() => {
         const userDetails = localStorage.getItem('userDetails')
@@ -35,7 +37,8 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
 
     const handleChange = (value: string, name: string) => {
         if (name === 'mobile') {
-            const code = value.split("")
+            const number = value.replace(/[^0-9+*]/g, '')
+            const code = number.split("")
             code.splice(0, 3)
             const data = code.map((item, index) => {
                 if (index > 4) {
@@ -45,12 +48,8 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
                 }
             })
             setUserData(((prev) => ({ ...prev, mobile: ["+", "9", "1", ...data].join("") })));
-        }
-        if (name === 'email') {
-            setUserData(((prev) => ({ ...prev, email: value })));
-        }
-        if (name === "name") {
-            setUserData(((prev) => ({ ...prev, name: value })));
+        } else {
+            setUserData(((prev) => ({ ...prev, [name]: value })));
         }
     }
 
@@ -72,7 +71,7 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
                 name={"name"}
                 type={"text"}
                 placeHolder={"Legal Name"}
-                required={true}
+                required={false}
                 state={userData.name}
                 showEdit={true}
                 handleChange={handleChange}
@@ -94,7 +93,7 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
                 name={"email"}
                 type={"email"}
                 placeHolder={"Email"}
-                required={true}
+                required={false}
                 state={userData.email}
                 showEdit={true}
                 handleChange={handleChange}

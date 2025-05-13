@@ -18,10 +18,11 @@ interface InputBoxProps {
 
 const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, setFocus, handleChange, handleSubmit }: InputBoxProps) => {
 
+
     return (
-        <div className="z-50">
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="flex border  z-50  bg-white items-center border-b-3 border-amber-800 my-2 relative">
+        <div className={` ${focus === name && "z-50"}`}>
+            <form className={`${focus === name && "z-50"}`} onSubmit={(e) => handleSubmit(e)}>
+                <div className={` flex border  ${focus === name && "z-50"} bg-white items-center border-b-3 border-amber-800 my-2 relative`}>
                     <span className={` text-nowrap text-gray-500 top-4 left-4 absolute duration-150 ${focus === name || state != "" ? "-translate-3 text-xs " : "translate-0 text-sm "} `}>{placeHolder}</span>
                     <input
                         autoFocus
@@ -33,12 +34,13 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, s
                         value={state}
                         placeholder={focus === name ? placeHolder : ""}
                         onChange={((e) => handleChange(e.target.value, name))}
+                        maxLength={13}
                     />
                     {showEdit && <span onClick={(() => setFocus(name))} className=" cursor-pointer px-2 ">
                         <PencilSquareIcon className="size-5 text-gray-300 " />
                     </span>}
                 </div>
-                <div className={` ${focus === name ? "visible" : "hidden"} duration-200 bg-white z-50 w-full flex justify-end gap-3`}>
+                <div className={` ${focus === name ? "visible z-50 " : "hidden"} duration-200 bg-white  w-full flex justify-end gap-3`}>
                     <button onClick={() => setFocus("")} type="reset" className=" text-xs cursor-pointer  px-3 py-2 underline underline-offset-2 active:bg-gray-100">Cancel</button>
                     <button type="submit" className={` ${focus === name ? "active:bg-gray-100" : ""} border-gray-300 text-xs border cursor-pointer rounded-sm px-3 py-2   `} >Save</button>
                 </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import InputBox from "./InputBox"
 
 interface UserDetailsTypes {
@@ -54,7 +54,8 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
         }
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         localStorage.setItem('userDetails', JSON.stringify(userData))
         setFocus("")
         if (userData.name !== "" && userData.email !== "" && userData.mobile !== "") {
@@ -84,7 +85,7 @@ const ProfileForm = ({ setShowReferral }: ProfileFormTypes) => {
                 placeHolder={"Phone Number"}
                 required={true}
                 state={userData.mobile}
-                showEdit={false}
+                showEdit={true}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 focus={focus}

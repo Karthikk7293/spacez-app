@@ -3,7 +3,13 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
 import { LockClosedIcon } from "@heroicons/react/24/solid"
 
-const ReferralCard = ({ showReferral }) => {
+interface ReferralCardTypes {
+    showReferral: boolean;
+    setShowReferral: (data: boolean) => void
+}
+
+const ReferralCard = ({ showReferral, setShowReferral }: ReferralCardTypes) => {
+
     return (
         <div className="py-3 flex justify-between items-center">
             <div>

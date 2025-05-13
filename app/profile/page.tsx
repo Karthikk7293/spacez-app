@@ -20,7 +20,7 @@ const ProfilePage = () => {
                     <ProfileCard />
                     <div className=" md:w-[70%]">
                         <hr className="text-gray-200 md:hidden" />
-                        <ReferralCard showReferral={showReferral} />
+                        <ReferralCard showReferral={showReferral} setShowReferral={setShowReferral} />
                         <hr className="text-gray-200" />
                         <ProfileForm setShowReferral={setShowReferral} />
                         <hr className="text-gray-200" />

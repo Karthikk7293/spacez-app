@@ -3,6 +3,7 @@
 import { InputBoxProps } from "@/lib/types"
 import { PencilSquareIcon } from "@heroicons/react/16/solid"
 import { useEffect, useState } from "react"
+import { EditIcon } from "../images/Svg"
 
 
 const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, loading, setFocus, handleChange, handleSubmit }: InputBoxProps) => {
@@ -24,13 +25,11 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, l
 
     }, [state])
 
-
-
     return (
         <div className={` ${focus === name && "z-50"}`}>
             <form className={`${focus === name && "z-50"}`} onSubmit={(e) => handleSubmit(e)}>
-                <div className={` flex border  ${focus === name && "z-50"} bg-white items-center border-b-3 border-amber-800 my-2 relative`}>
-                    <span className={` text-nowrap text-gray-500 top-4 left-4 absolute duration-150 ${focus === name || state != "" ? "-translate-3 text-xs " : "translate-0 text-sm "} `}>{placeHolder}</span>
+                <div className={` flex   ${focus === name ? "z-50 border-[#AD6038] " : " border-[#4B4E4B]"} bg-white items-center border-y-[2px] border-t-[0.64px] border-x-[0.64px] my-2 relative`}>
+                    <span className={` text-nowrap text-[#7D817D] top-4 left-4 absolute duration-150 ${focus === name || state != "" ? "-translate-3 text-xs " : "translate-0 text-sm "} `}>{placeHolder}</span>
                     <input
                         autoFocus
                         className=" w-full px-3 pt-5 h-12 !border-transparent focus:outline-none "
@@ -44,7 +43,7 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, l
                         maxLength={name === 'mobile' ? 15 : 100}
                     />
                     {showEdit && <span onClick={(() => setFocus(name))} className=" cursor-pointer px-2 ">
-                        <PencilSquareIcon className="size-5 text-gray-300 " />
+                        <EditIcon />
                     </span>}
                 </div>
                 <div className={` ${focus === name ? "visible z-50 " : "hidden"}   duration-200 bg-white  w-full flex justify-end gap-3`}>

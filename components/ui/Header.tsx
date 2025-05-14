@@ -15,7 +15,7 @@ const Header = () => {
                 <Link href={'/'} className="">
                     <Image className="h-auto w-auto -mt-2 -ml-4 " height={100} width={100} src={'https://res.cloudinary.com/dz3tveb47/image/upload/v1741425295/logo_for_websiter_1_1_iz3hbc.png'} alt="logo" />
                 </Link>
-                <button onClick={toggleMenu} aria-label="Toggle menu" className="p-2">
+                <button onClick={toggleMenu} aria-label="Toggle menu" className="p-2 cursor-pointer ">
                     {isMenuOpen ? (
                         <div className="flex flex-col gap-1">
                             <div className="border w-5" />

@@ -2,23 +2,30 @@
 
 import { ReferralCardTypes } from "@/lib/types"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
-import { LockClosedIcon } from "@heroicons/react/24/solid"
 
 const ReferralCard = ({ showReferral }: ReferralCardTypes) => {
 
     return (
-        <div className="py-3 flex justify-between items-center">
-            <div>
-                <p className="text-xs">Refer a friend, Earn in cash</p>
-                {showReferral
-                    ? <p className="font-bold">SPACEZ-{new Date().getFullYear()}</p>
-                    : <p className="font-extrabold tracking-tighter ">*********</p>}
+        <div className="py-3 ">
+            <div className="flex justify-between items-center">
+                <div >
+                    <p className="text-xs">Refer a friend, Earn in cash</p>
+                    {showReferral
+                        ? <p className="font-bold">SPACEZ-{new Date().getFullYear()}</p>
+                        : <p className="font-extrabold tracking-tighter ">*********</p>}
+                </div>
+                <div>
+                    {showReferral
+                        ? <ChevronRightIcon className="size-4" />
+                        : <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.30775 19.5C1.80258 19.5 1.375 19.325 1.025 18.975C0.675 18.625 0.5 18.1974 0.5 17.6923V8.30775C0.5 7.80258 0.675 7.375 1.025 7.025C1.375 6.675 1.80258 6.5 2.30775 6.5H3.5V4.5C3.5 3.25133 3.93783 2.18917 4.8135 1.3135C5.68917 0.437833 6.75133 0 8 0C9.24867 0 10.3108 0.437833 11.1865 1.3135C12.0622 2.18917 12.5 3.25133 12.5 4.5V6.5H13.6923C14.1974 6.5 14.625 6.675 14.975 7.025C15.325 7.375 15.5 7.80258 15.5 8.30775V9.55C15.2833 9.47567 15.0509 9.41992 14.8027 9.38275C14.5547 9.34558 14.2872 9.327 14 9.327C12.1243 9.26933 10.5401 9.88533 9.24725 11.175C7.95425 12.4647 7.30775 14.0089 7.30775 15.8077C7.30775 16.4166 7.41125 17.0621 7.61825 17.7443C7.82525 18.4263 8.10633 19.0115 8.4615 19.5H2.30775ZM13.8077 20.3078C12.5589 20.3078 11.4967 19.8699 10.6212 18.9943C9.74558 18.1186 9.30775 17.0564 9.30775 15.8077C9.30775 14.5589 9.74558 13.4967 10.6212 12.6213C11.4967 11.7456 12.5589 11.3077 13.8077 11.3077C15.0564 11.3077 16.1186 11.7456 16.9943 12.6213C17.8699 13.4967 18.3078 14.5589 18.3078 15.8077C18.3078 17.0564 17.8699 18.1186 16.9943 18.9943C16.1186 19.8699 15.0564 20.3078 13.8077 20.3078ZM5 6.5H11V4.5C11 3.66667 10.7083 2.95833 10.125 2.375C9.54167 1.79167 8.83333 1.5 8 1.5C7.16667 1.5 6.45833 1.79167 5.875 2.375C5.29167 2.95833 5 3.66667 5 4.5V6.5ZM13.8077 15.8077C14.2244 15.8077 14.5786 15.6619 14.8702 15.3702C15.1619 15.0786 15.3077 14.7244 15.3077 14.3077C15.3077 13.8911 15.1619 13.5369 14.8702 13.2452C14.5786 12.9536 14.2244 12.8077 13.8077 12.8077C13.3911 12.8077 13.0369 12.9536 12.7452 13.2452C12.4536 13.5369 12.3077 13.8911 12.3077 14.3077C12.3077 14.7244 12.4536 15.0786 12.7452 15.3702C13.0369 15.6619 13.3911 15.8077 13.8077 15.8077ZM13.8077 18.8078C14.3077 18.8078 14.7744 18.6911 15.2078 18.4578C15.6411 18.2244 15.9994 17.8994 16.2828 17.4827C15.8994 17.2494 15.4994 17.0786 15.0828 16.9703C14.6661 16.8619 14.2411 16.8078 13.8077 16.8078C13.3744 16.8078 12.9494 16.8619 12.5328 16.9703C12.1161 17.0786 11.7161 17.2494 11.3328 17.4827C11.6161 17.8994 11.9744 18.2244 12.4078 18.4578C12.8411 18.6911 13.3077 18.8078 13.8077 18.8078Z" fill="#646864" />
+                        </svg>
+                    }
+                </div>
             </div>
-            <div>
-                {showReferral
-                    ? <ChevronRightIcon className="size-4" />
-                    : <LockClosedIcon className="size-4" />}
-            </div>
+            {!showReferral && <div className=" rounded p-2 bg-[#F2F2F2] ">
+                <p className="text-xs text-[#7D817D] ">*Note: To access and use the referral feature, please ensure all profile details are completed.</p>
+            </div>}
         </div>
     )
 }

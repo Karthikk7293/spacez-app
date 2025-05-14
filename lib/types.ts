@@ -28,3 +28,9 @@ export interface ProfileFormTypes {
 export interface ReferralCardTypes {
     showReferral: boolean;
 }
+
+export interface LogoutButtonTypes {
+    tooltip: string
+    text: string
+    Icon: React.ElementType
+}

@@ -5,6 +5,7 @@ import LogoutButton from "@/components/ui/LogoutButton"
 import ProfileCard from "@/components/ui/ProfileCard"
 import ProfileForm from "@/components/ui/ProfileForm"
 import ReferralCard from "@/components/ui/ReferralCard"
+import { ArchiveBoxXMarkIcon, ArrowRightStartOnRectangleIcon } from "@heroicons/react/24/outline"
 
 import { useState } from "react"
 
@@ -13,9 +14,9 @@ const ProfilePage = () => {
     const [focus, setFocus] = useState("")
 
     return (
-        <div className="relative">
-            {focus !== "" && <div className="absolute w-screen h-[110vh]  left-0 top-0 z-30 bg-gray-500 opacity-20"></div>}
-            <div className="px-5 mb-24 md:w-[60%] mx-auto z-10 ">
+        <div className="relative min-h-[90vh] ">
+            {focus !== "" && <div className="absolute w-screen h-full  left-0 top-0 z-30 bg-gray-500 opacity-20"></div>}
+            <div className="px-5 md:pt-24 md:w-[60%] mx-auto z-10 ">
                 <div className="  flex flex-col md:flex-row   mx-auto">
                     <ProfileCard />
                     <div className=" md:w-[70%]">
@@ -26,8 +27,8 @@ const ProfilePage = () => {
                         <hr className="text-gray-200" />
                     </div>
                 </div>
-                <LogoutButton />
-                <DeleteAccount />
+                <LogoutButton tooltip={"leaving so soon ? 😔"} text={"Log out"} Icon={ArrowRightStartOnRectangleIcon} />
+                <DeleteAccount tooltip={"this will delete all your data 💔"} text={"Delete Account"} Icon={ArchiveBoxXMarkIcon} />
             </div>
         </div>
     )

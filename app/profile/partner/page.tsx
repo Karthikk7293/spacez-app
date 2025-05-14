@@ -6,7 +6,7 @@ import PartnerCard from "@/components/ui/PartnerCard"
 import ProfileCard from "@/components/ui/ProfileCard"
 import ProfileForm from "@/components/ui/ProfileForm"
 import ReferralCard from "@/components/ui/ReferralCard"
-
+import { ArchiveBoxXMarkIcon, ArrowRightStartOnRectangleIcon } from "@heroicons/react/24/outline"
 
 import { useState } from "react"
 
@@ -29,8 +29,8 @@ const PartnerPage = () => {
                         <hr className="text-gray-200" />
                     </div>
                 </div>
-                <LogoutButton />
-                <DeleteAccount />
+                <LogoutButton tooltip={"leaving so soon ? 😔"} text={"Log out"} Icon={ArrowRightStartOnRectangleIcon} />
+                <DeleteAccount tooltip={"this will delete all your data 💔"} text={"Delete Account"} Icon={ArchiveBoxXMarkIcon} />
             </div>
         </div>
     )

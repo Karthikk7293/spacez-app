@@ -6,7 +6,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline"
 const ReferralCard = ({ showReferral }: ReferralCardTypes) => {
 
     return (
-        <div className="py-3 ">
+        <div className="pb-3 pt-4 ">
             <div className="flex justify-between items-center">
                 <div >
                     <p className="text-xs">Refer a friend, Earn in cash</p>

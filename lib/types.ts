@@ -33,5 +33,4 @@ export interface ReferralCardTypes {
 export interface LogoutButtonTypes {
     tooltip: string
     text: string
-    Icon: React.ElementType
 }

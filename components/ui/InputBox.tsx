@@ -27,7 +27,7 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, l
     return (
         <div className={` ${focus === name && "z-50"}`}>
             <form className={`${focus === name && "z-50"}`} onSubmit={(e) => handleSubmit(e)}>
-                <div className={` flex   ${focus === name ? "z-50 border-[#AD6038] " : " border-[#4B4E4B]"} bg-white items-center border-y-[2px] border-t-[0.64px] border-x-[0.64px] my-2 relative`}>
+                <div className={` flex   ${focus === name ? "z-50 border-[#AD6038] " : " border-[#4B4E4B]"}  ${focus !== name && focus !== "" ? "bg-[#E5E6E5] border-none " : "bg-white"} items-center border-y-[2px] border-t-[0.64px] border-x-[0.64px] my-2 relative`}>
                     <span className={` text-nowrap text-[#7D817D] top-4 left-4 absolute duration-150 ${focus === name || state != "" ? "-translate-3 text-xs " : "translate-0 text-sm "} `}>{placeHolder}</span>
                     <input
                         autoFocus

@@ -1,22 +1,27 @@
 'use client'
 
+import { InputBoxProps } from "@/lib/types"
 import { PencilSquareIcon } from "@heroicons/react/16/solid"
-import { FormEvent } from "react"
+import { useEffect, useState } from "react"
 
-interface InputBoxProps {
-    type: string
-    name: string
-    placeHolder: string
-    required: boolean
-    state: string
-    showEdit: boolean
-    focus: string
-    setFocus: (value: string) => void
-    handleChange: (value: string, name: string) => void
-    handleSubmit: (e: FormEvent<HTMLFormElement>) => void
-}
 
 const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, setFocus, handleChange, handleSubmit }: InputBoxProps) => {
+
+    const [showSaveButton, setShowSaveButton] = useState(false)
+
+    useEffect(() => {
+        const userDetails = localStorage.getItem("userDetails")
+        if (userDetails) {
+            const user = JSON.parse(userDetails)
+            if (user[name] === state) {
+                setShowSaveButton(false)
+            } else {
+                setShowSaveButton(true)
+            }
+        }
+
+    }, [state])
+
 
 
     return (
@@ -34,15 +39,15 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, s
                         value={state}
                         placeholder={focus === name ? placeHolder : ""}
                         onChange={((e) => handleChange(e.target.value, name))}
-                        maxLength={13}
+                        maxLength={name === 'mobile' ? 15 : 100}
                     />
                     {showEdit && <span onClick={(() => setFocus(name))} className=" cursor-pointer px-2 ">
                         <PencilSquareIcon className="size-5 text-gray-300 " />
                     </span>}
                 </div>
-                <div className={` ${focus === name ? "visible z-50 " : "hidden"} duration-200 bg-white  w-full flex justify-end gap-3`}>
-                    <button onClick={() => setFocus("")} type="reset" className=" text-xs cursor-pointer  px-3 py-2 underline underline-offset-2 active:bg-gray-100">Cancel</button>
-                    <button type="submit" className={` ${focus === name ? "active:bg-gray-100" : ""} border-gray-300 text-xs border cursor-pointer rounded-sm px-3 py-2   `} >Save</button>
+                <div className={` ${focus === name ? "visible z-50 " : "hidden"}   duration-200 bg-white  w-full flex justify-end gap-3`}>
+                    <button onClick={() => setFocus("")} type="reset" className={`${focus === name ? " z-50 " : ""} text-xs cursor-pointer  px-3 py-2 underline underline-offset-2 active:bg-gray-100`}>Cancel</button>
+                    <button type="submit" className={` ${focus === name && showSaveButton ? " z-50 bg-amber-50 " : ""} active:bg-gray-100 border-gray-300 text-xs border cursor-pointer rounded-sm px-3 py-2   `} >Save</button>
                 </div>
             </form>
         </div>

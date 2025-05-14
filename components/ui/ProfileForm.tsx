@@ -2,18 +2,10 @@
 
 import { FormEvent, useEffect, useState } from "react"
 import InputBox from "./InputBox"
+import { ProfileFormTypes, UserDetailsTypes } from "@/lib/types"
+import { handleUpdatePhone, handleUpdateReferralStatus } from "@/lib/util"
 
-interface UserDetailsTypes {
-    name: string
-    mobile: string
-    email: string
-}
 
-interface ProfileFormTypes {
-    setShowReferral: (data: boolean) => void
-    focus: string
-    setFocus: (data: string) => void
-}
 
 
 const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => {
@@ -25,11 +17,7 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
         if (userDetails) {
             const data: UserDetailsTypes = JSON.parse(userDetails)
             setUserData(data)
-            if (data.name !== "" && data.email !== "" && data.mobile !== "") {
-                setShowReferral(true)
-            } else {
-                setShowReferral(false)
-            }
+            handleUpdateReferralStatus(setShowReferral, data)
         }
 
     }, [])
@@ -37,17 +25,7 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
 
     const handleChange = (value: string, name: string) => {
         if (name === 'mobile') {
-            const number = value.replace(/[^0-9+*]/g, '')
-            const code = number.split("")
-            code.splice(0, 3)
-            const data = code.map((item, index) => {
-                if (index > 4) {
-                    return item
-                } else {
-                    return "*"
-                }
-            })
-            setUserData(((prev) => ({ ...prev, mobile: ["+", "9", "1", ...data].join("") })));
+            setUserData(((prev) => ({ ...prev, mobile: handleUpdatePhone(value) })));
         } else {
             setUserData(((prev) => ({ ...prev, [name]: value })));
         }
@@ -57,16 +35,13 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
         e.preventDefault()
         localStorage.setItem('userDetails', JSON.stringify(userData))
         setFocus("")
-        if (userData.name !== "" && userData.email !== "" && userData.mobile !== "") {
-            setShowReferral(true)
-        } else {
-            setShowReferral(false)
-        }
+        handleUpdateReferralStatus(setShowReferral, userData)
 
     }
 
+
     return (
-        <div className="py-5">
+        <div className="py-5 ">
             <InputBox
                 name={"name"}
                 type={"text"}

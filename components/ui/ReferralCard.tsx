@@ -1,11 +1,8 @@
 'use client'
 
+import { ReferralCardTypes } from "@/lib/types"
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
 import { LockClosedIcon } from "@heroicons/react/24/solid"
-
-interface ReferralCardTypes {
-    showReferral: boolean;
-}
 
 const ReferralCard = ({ showReferral }: ReferralCardTypes) => {
 

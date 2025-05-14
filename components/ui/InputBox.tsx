@@ -1,7 +1,6 @@
 'use client'
 
 import { InputBoxProps } from "@/lib/types"
-import { PencilSquareIcon } from "@heroicons/react/16/solid"
 import { useEffect, useState } from "react"
 import { EditIcon } from "../images/Svg"
 

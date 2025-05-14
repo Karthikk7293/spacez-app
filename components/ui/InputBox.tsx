@@ -18,6 +18,8 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, s
             } else {
                 setShowSaveButton(true)
             }
+        } else {
+            setShowSaveButton(true)
         }
 
     }, [state])

@@ -5,7 +5,7 @@ import { PencilSquareIcon } from "@heroicons/react/16/solid"
 import { useEffect, useState } from "react"
 
 
-const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, setFocus, handleChange, handleSubmit }: InputBoxProps) => {
+const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, loading, setFocus, handleChange, handleSubmit }: InputBoxProps) => {
 
     const [showSaveButton, setShowSaveButton] = useState(false)
 
@@ -49,7 +49,9 @@ const InputBox = ({ type, name, placeHolder, required, showEdit, state, focus, s
                 </div>
                 <div className={` ${focus === name ? "visible z-50 " : "hidden"}   duration-200 bg-white  w-full flex justify-end gap-3`}>
                     <button onClick={() => setFocus("")} type="reset" className={`${focus === name ? " z-50 " : ""} text-xs cursor-pointer  px-3 py-2 underline underline-offset-2 active:bg-gray-100`}>Cancel</button>
-                    <button type="submit" className={` ${focus === name && showSaveButton ? " z-50 bg-amber-50 " : ""} active:bg-gray-100 border-gray-300 text-xs border cursor-pointer rounded-sm px-3 py-2   `} >Save</button>
+                    <button type="submit" className={` ${focus === name && showSaveButton ? " z-50 bg-amber-50 " : ""} active:bg-gray-100 border-gray-300 text-xs border cursor-pointer rounded-sm px-3 py-2   `} >
+                        {loading ? <svg className=" size-3 animate-ping  border-3 border-blue-400 rounded-full" viewBox="0 0 24 24"></svg> : "save"}
+                    </button>
                 </div>
             </form>
         </div>

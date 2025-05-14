@@ -7,6 +7,7 @@ export interface InputBoxProps {
     required: boolean
     state: string
     showEdit: boolean
+    loading: boolean
     focus: string
     setFocus: (value: string) => void
     handleChange: (value: string, name: string) => void

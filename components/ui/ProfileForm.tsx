@@ -10,6 +10,7 @@ import { handleUpdatePhone, handleUpdateReferralStatus } from "@/lib/util"
 
 const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => {
     const [userData, setUserData] = useState({ name: "", mobile: "+91", email: "" })
+    const [loading, setLoading] = useState(false)
 
 
     useEffect(() => {
@@ -33,9 +34,11 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setLoading(true)
         localStorage.setItem('userDetails', JSON.stringify(userData))
         setFocus("")
         handleUpdateReferralStatus(setShowReferral, userData)
+        setLoading(false)
 
     }
 
@@ -52,7 +55,8 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 focus={focus}
-                setFocus={setFocus} />
+                setFocus={setFocus}
+                loading={loading} />
             <InputBox
                 name={"mobile"}
                 type={"text"}
@@ -63,7 +67,8 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 focus={focus}
-                setFocus={setFocus} />
+                setFocus={setFocus}
+                loading={loading} />
             <InputBox
                 name={"email"}
                 type={"email"}
@@ -74,7 +79,8 @@ const ProfileForm = ({ setShowReferral, focus, setFocus }: ProfileFormTypes) => 
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 focus={focus}
-                setFocus={setFocus} />
+                setFocus={setFocus}
+                loading={loading} />
         </div>
     )
 }
